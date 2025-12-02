@@ -1,23 +1,36 @@
 {
   "name": "ada9",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Pruebas automatizadas con Playwright para MrHotel API",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:scenario1": "playwright test tests/e2e/01-complete-reservation-flow.spec.ts",
+    "test:scenario2": "playwright test tests/e2e/02-inventory-management.spec.ts",
+    "test:scenario3": "playwright test tests/e2e/03-negative-scenarios.spec.ts",
+    "test:ui": "playwright test --ui",
+    "report": "playwright show-report",
+    "report:json": "node scripts/parse-results.js",
+    "test:all": "npm run test && npm run report:json"
   },
-  "keywords": [],
+  "keywords": [
+    "playwright",
+    "testing",
+    "api",
+    "automation",
+    "hotel"
+  ],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
-    "@types/jest": "^30.0.0",
+    "@playwright/test": "^1.57.0",
     "@types/node": "^24.10.1",
-    "@types/supertest": "^6.0.3",
-    "jest": "^30.2.0",
-    "supertest": "^7.1.4",
-    "ts-jest": "^29.4.6",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3"
   }
 }
